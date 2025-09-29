@@ -3,9 +3,11 @@ public class graph1 {
     public static class edge {
         int src; 
         int dest;
-        public edge(int s, int d) {
+        int wt;
+        public edge(int s, int d, int w) {
             this.src = s;
             this.dest = d;
+            this.wt = w;
 
         }
     }
@@ -13,17 +15,17 @@ public class graph1 {
         for(int i = 0; i < graph.length; i++) {
            graph[i] = new ArrayList<edge>();
         }
-        graph[0].add(new edge(0,2));
+        graph[0].add(new edge(0, 2, 2));
 
-        graph[1].add(new edge(1,2));
-        graph[1].add(new edge(1,3));
+        graph[1].add(new edge(1, 2, 10));
+        graph[1].add(new edge(1, 3, 0));
 
-        graph[2].add(new edge(2,0));
-        graph[2].add(new edge(2,1));
-        graph[2].add(new edge(2,3));
+        graph[2].add(new edge(2, 0, 2));
+        graph[2].add(new edge(2, 1,10));
+        graph[2].add(new edge(2, 3, -1));
 
-        graph[3].add(new edge(3,1));
-        graph[3].add(new edge(3,2));
+        graph[3].add(new edge(3, 1, 0));
+        graph[3].add(new edge(3, 2, -1));
     }
     public static void main(String[] args) {
         int v = 4;
@@ -31,23 +33,25 @@ public class graph1 {
         createGraph(graph);
         for(int i = 0; i < graph[0].size(); i++) {
             edge e = graph[0].get(i);
-            System.out.print(e.dest+" ");
+            System.out.println(e.dest+", "+e.wt);
         }
         System.out.println();
         for(int i = 0; i < graph[1].size(); i++) {
             edge e = graph[1].get(i);
-            System.out.print(e.dest+" ");
+           System.out.println(e.dest+", "+e.wt);
         }
           System.out.println();
         for(int i = 0; i < graph[2].size(); i++) {
             edge e = graph[2].get(i);
-            System.out.print(e.dest+" ");
+            System.out.println(e.dest+", "+e.wt);
         }
           System.out.println();
         for(int i = 0; i < graph[3].size(); i++) {
             edge e = graph[3].get(i);
-            System.out.print(e.dest+" ");
+            System.out.println(e.dest+", "+e.wt);
         }
     }
     
 }
+
+
